@@ -1,0 +1,22 @@
+{
+  "name": "petclinic",
+  "version": "1.0.0",
+  "description": "Modern landing page for a veterinary clinic with admin-managed inquiries.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js",
+    "test": "echo \"No tests configured\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "sqlite3": "^5.1.7"
+  }
+}

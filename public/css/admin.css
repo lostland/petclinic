@@ -1,0 +1,179 @@
+.admin-body {
+  min-height: 100vh;
+  background: linear-gradient(120deg, rgba(124, 92, 255, 0.08), rgba(0, 201, 167, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 4vw, 4rem);
+  font-family: 'Poppins', sans-serif;
+}
+
+.admin-container {
+  width: min(1100px, 100%);
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 40px 80px rgba(12, 16, 31, 0.12);
+  padding: clamp(2.5rem, 4vw, 3.5rem);
+  display: grid;
+  gap: 2rem;
+}
+
+.admin-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-header h1 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.admin-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-user {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.admin-form {
+  display: grid;
+  gap: 1rem;
+  background: rgba(124, 92, 255, 0.06);
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.admin-form label {
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.admin-form input {
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(12, 16, 31, 0.15);
+  font-size: 1rem;
+}
+
+.admin-form .form-feedback {
+  min-height: 1.2rem;
+  font-size: 0.95rem;
+}
+
+.admin-dashboard {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.dashboard-top p {
+  color: var(--muted);
+}
+
+.inquiry-table-wrapper {
+  overflow-x: auto;
+  border-radius: 20px;
+  border: 1px solid rgba(12, 16, 31, 0.08);
+}
+
+.inquiry-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+.inquiry-table thead {
+  background: rgba(124, 92, 255, 0.1);
+}
+
+.inquiry-table th,
+.inquiry-table td {
+  padding: 1rem;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.95rem;
+}
+
+.inquiry-table tbody tr:nth-child(odd) {
+  background: rgba(12, 16, 31, 0.02);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.status-new {
+  background: rgba(124, 92, 255, 0.15);
+  color: var(--primary);
+}
+
+.status-in_progress {
+  background: rgba(0, 201, 167, 0.15);
+  color: var(--secondary);
+}
+
+.status-completed {
+  background: rgba(255, 118, 184, 0.15);
+  color: var(--accent);
+}
+
+.admin-actions {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.admin-actions textarea {
+  min-height: 80px;
+  resize: vertical;
+  padding: 0.7rem;
+  border-radius: 12px;
+  border: 1px solid rgba(12, 16, 31, 0.1);
+}
+
+.admin-actions select {
+  padding: 0.6rem;
+  border-radius: 12px;
+  border: 1px solid rgba(12, 16, 31, 0.1);
+}
+
+.admin-actions button {
+  justify-self: start;
+  background: var(--gradient);
+  color: #0c101f;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.admin-actions button:hover {
+  transform: translateY(-2px);
+}
+
+[data-view='dashboard'][hidden] + footer {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .admin-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .inquiry-table {
+    min-width: 640px;
+  }
+}

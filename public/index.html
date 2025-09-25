@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Purrfect Paws 동물병원</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header class="hero" id="top">
+      <nav class="navbar">
+        <div class="logo">Purrfect Paws</div>
+        <ul class="nav-links">
+          <li><a href="#about">병원소개</a></li>
+          <li><a href="#services">진료과목</a></li>
+          <li><a href="#gallery">갤러리</a></li>
+          <li><a href="#contact">문의하기</a></li>
+          <li><a href="/admin" class="admin-link">관리자</a></li>
+        </ul>
+        <button class="nav-cta" data-scroll="#contact">상담 예약</button>
+      </nav>
+      <div class="hero-content">
+        <div class="hero-copy" data-animate>
+          <span class="tag">24/7 케어</span>
+          <h1>
+            강아지와 고양이를 위한<br />
+            <span class="accent">젊고 트렌디한</span> 동물병원
+          </h1>
+          <p>
+            최신 의료 장비와 반려동물 친화적인 공간에서 최고의 수의사 팀이
+            기다리고 있어요. 귀여운 친구들의 건강과 행복을 위해 지금 바로
+            상담을 예약해보세요!
+          </p>
+          <div class="hero-actions">
+            <button class="primary" data-scroll="#contact">빠른 상담 신청</button>
+            <button class="ghost" data-scroll="#gallery">공간 구경하기</button>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <strong>10K+</strong>
+              <span>반려동물 케어</span>
+            </div>
+            <div>
+              <strong>4.9/5</strong>
+              <span>고객 만족도</span>
+            </div>
+            <div>
+              <strong>365일</strong>
+              <span>응급 진료</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-gallery" data-animate>
+          <div class="floating-card card-one">
+            <img
+              src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=800&q=80"
+              alt="스마일 강아지"
+            />
+            <span>환영해요!</span>
+          </div>
+          <div class="floating-card card-two">
+            <img
+              src="https://images.unsplash.com/photo-1558944351-c37e0b4b25df?auto=format&fit=crop&w=800&q=80"
+              alt="아기 고양이"
+            />
+            <span>건강 체크 중</span>
+          </div>
+          <div class="floating-card card-three">
+            <img
+              src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=800&q=80"
+              alt="친근한 수의사"
+            />
+            <span>전담 수의사 배정</span>
+          </div>
+          <div class="floating-badge">맞춤 케어</div>
+          <div class="floating-badge secondary">AI 건강 분석</div>
+        </div>
+      </div>
+      <div class="hero-wave"></div>
+    </header>
+
+    <main>
+      <section id="about" class="about" data-animate>
+        <div class="section-header">
+          <span class="eyebrow">ABOUT US</span>
+          <h2>반려동물과 보호자가 함께 행복한 공간</h2>
+          <p>
+            Purrfect Paws 동물병원은 최신 장비와 디지털 차트를 기반으로 한
+            스마트 진료 시스템을 갖추고 있어요. 보호자 커뮤니티, 라이브 스트리밍
+            대기실, SNS로 공유 가능한 포토존 등 젊은 세대가 좋아할 콘텐츠로
+            가득 차 있답니다.
+          </p>
+        </div>
+        <div class="about-grid">
+          <article>
+            <h3>원스톱 케어</h3>
+            <p>
+              예방접종부터 재활치료까지 한 곳에서 해결할 수 있는 토털 케어
+              프로그램을 운영하고 있어요. 반려동물별 맞춤 데이터를 바탕으로
+              건강 루틴을 제안합니다.
+            </p>
+          </article>
+          <article>
+            <h3>밀레니얼 디자인</h3>
+            <p>
+              파스텔 톤과 네온 포인트를 활용한 인테리어로 인생샷을 남기기 좋은
+              포토존을 준비했어요. SNS에서 바로 공유할 수 있는 QR 포토 프린터도
+              만나보세요.
+            </p>
+          </article>
+          <article>
+            <h3>프리미엄 커뮤니티</h3>
+            <p>
+              보호자 전용 라운지에서 전문 푸드 컨설턴트와 상담하거나, 주말에
+              열리는 퍼피 클래스에서 새로운 친구들을 만나보세요.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="services" class="services" data-animate>
+        <div class="section-header">
+          <span class="eyebrow">SERVICES</span>
+          <h2>반려동물 라이프스타일 맞춤 진료</h2>
+          <p>
+            전담 주치의 제도와 건강 모니터링 앱을 통해 언제 어디서나 안심할 수
+            있는 서비스를 제공해요.
+          </p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="icon">💉</div>
+            <h3>예방 &amp; 웰니스</h3>
+            <p>
+              라이프 사이클에 맞춘 맞춤 예방접종, 체성분 분석, 영양 설계와
+              홈케어 가이드를 제공합니다.
+            </p>
+          </article>
+          <article class="service-card">
+            <div class="icon">🧬</div>
+            <h3>프리미엄 진단</h3>
+            <p>
+              디지털 엑스레이, 초음파, AI 판독 솔루션으로 빠르고 정확하게
+              진단합니다.
+            </p>
+          </article>
+          <article class="service-card">
+            <div class="icon">🧘‍♀️</div>
+            <h3>재활 &amp; 스파</h3>
+            <p>
+              하이드로 테라피와 도수 재활, 애니멀 요가 등 힐링 프로그램으로
+              반려동물의 컨디션을 올려주세요.
+            </p>
+          </article>
+          <article class="service-card">
+            <div class="icon">🚑</div>
+            <h3>24시 응급센터</h3>
+            <p>
+              응급 상황에 대비한 전문 수의사와 AI 트리아지 시스템으로 골든타임을
+              사수합니다.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="experience" data-animate>
+        <div class="experience-content">
+          <h2>스마트 케어 여정</h2>
+          <ol class="timeline">
+            <li>
+              <strong>앱으로 빠르게 예약</strong>
+              <span>실시간 예약과 전자차트 작성으로 대기 시간을 줄여요.</span>
+            </li>
+            <li>
+              <strong>웰컴 포토 스팟</strong>
+              <span>입장 즉시 포토 부스에서 귀여운 사진을 남겨보세요.</span>
+            </li>
+            <li>
+              <strong>맞춤형 진료 플랜</strong>
+              <span>AI 건강 리포트를 바탕으로 한 케어 플랜을 제공합니다.</span>
+            </li>
+            <li>
+              <strong>커뮤니티 팔로업</strong>
+              <span>케어 매니저가 메시지와 라이브 스트리밍으로 회복을 체크해요.</span>
+            </li>
+          </ol>
+        </div>
+        <div class="experience-media">
+          <div class="stat-card">
+            <h3>Young &amp; Trendy</h3>
+            <p>레트로 퓨처 무드의 인테리어로 SNS 화제!</p>
+          </div>
+          <img
+            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80"
+            alt="병원 인테리어"
+          />
+        </div>
+      </section>
+
+      <section id="gallery" class="gallery" data-animate>
+        <div class="section-header">
+          <span class="eyebrow">GALLERY</span>
+          <h2>갤러리 &amp; 하이라이트</h2>
+          <p>
+            사랑스러운 반려동물의 순간과 병원 공간을 미리 만나보세요. 사진과
+            영상 중 원하는 방식으로 둘러볼 수 있어요.
+          </p>
+        </div>
+        <div class="gallery-toggle">
+          <button class="toggle active" data-target="photos">사진 보기</button>
+          <button class="toggle" data-target="video">영상 보기</button>
+        </div>
+        <div class="gallery-grid" data-gallery="photos">
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1601758066383-3f5ef0119187?auto=format&fit=crop&w=800&q=80"
+              alt="산책하는 강아지"
+            />
+            <figcaption>힐링 산책 클래스</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1619983081593-ec1b3e1b3c3e?auto=format&fit=crop&w=800&q=80"
+              alt="수의사와 고양이"
+            />
+            <figcaption>전담 주치의 상담</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80"
+              alt="강아지 미용"
+            />
+            <figcaption>프리미엄 그루밍</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=800&q=80"
+              alt="고양이 스파"
+            />
+            <figcaption>캣 스파 &amp; 릴렉스</figcaption>
+          </figure>
+        </div>
+        <div class="gallery-video" data-gallery="video" hidden>
+          <video
+            src="https://cdn.coverr.co/videos/coverr-a-young-girl-with-a-puppy-6673/1080p.mp4"
+            controls
+            poster="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80"
+          ></video>
+          <p class="video-caption">
+            푸르펙트 포우즈 동물병원의 하루를 담은 라이프로그 영상이에요.
+            실제 방문 전 분위기를 확인해보세요!
+          </p>
+        </div>
+      </section>
+
+      <section class="testimonials" data-animate>
+        <div class="section-header">
+          <span class="eyebrow">REVIEWS</span>
+          <h2>보호자들이 남겨준 진심 어린 후기</h2>
+          <p>믿고 맡길 수 있는 이유, 직접 확인해보세요.</p>
+        </div>
+        <div class="testimonial-cards">
+          <article class="testimonial">
+            <p>
+              "응급 상황에서도 신속하게 대응해 주셨고, 케어 매니저가 매일 건강
+              체크를 도와줘서 큰 감동을 받았어요!"
+            </p>
+            <div class="author">
+              <img
+                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80"
+                alt="보호자"
+              />
+              <span>김하늘 &amp; 뽀또</span>
+            </div>
+          </article>
+          <article class="testimonial">
+            <p>
+              "공간이 너무 예뻐서 놀랐어요. 포토 부스 덕분에 인생샷도 남기고,
+              커피바와 라운지가 진짜 힐링 공간이었어요."
+            </p>
+            <div class="author">
+              <img
+                src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=200&q=80"
+                alt="보호자"
+              />
+              <span>박민지 &amp; 구름</span>
+            </div>
+          </article>
+          <article class="testimonial">
+            <p>
+              "AI 건강 리포트를 바로 받아볼 수 있어 좋았고, 담당 수의사 선생님이
+              친절하게 설명해주셔서 믿음이 갔어요."
+            </p>
+            <div class="author">
+              <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+                alt="보호자"
+              />
+              <span>정지후 &amp; 라떼</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta" id="contact" data-animate>
+        <div class="cta-info">
+          <h2>우리 동물친구의 상태, 지금 바로 상담해보세요</h2>
+          <p>
+            아래에 정보를 남겨주시면 전문 케어 매니저가 빠르게 연락드릴게요.
+            예약 상담은 24시간 가능해요.
+          </p>
+          <ul class="cta-benefits">
+            <li>맞춤 케어 플랜 무료 설계</li>
+            <li>초진 방문 시 웰컴 키트 제공</li>
+            <li>라이브 상담 &amp; 케어 매니저 배정</li>
+          </ul>
+        </div>
+        <form class="cta-form" id="inquiry-form">
+          <label>
+            이름
+            <input type="text" name="name" placeholder="홍길동" required />
+          </label>
+          <label>
+            전화번호
+            <input type="tel" name="phone" placeholder="010-1234-5678" required />
+          </label>
+          <label>
+            문의 내용
+            <textarea
+              name="message"
+              rows="4"
+              placeholder="반려동물의 상태를 알려주세요."
+              required
+            ></textarea>
+          </label>
+          <button type="submit" class="primary">문의 접수하기</button>
+          <p class="form-feedback" role="status"></p>
+        </form>
+      </section>
+
+      <section class="map" data-animate>
+        <div class="section-header">
+          <span class="eyebrow">LOCATION</span>
+          <h2>네이버 지도에서 위치를 확인하세요</h2>
+          <p>
+            서울특별시 강남구 반려로 24, 푸르펙트 포우즈 타워 5층 — 네이버 지도로
+            쉽게 찾아오실 수 있어요.
+          </p>
+        </div>
+        <div class="map-wrapper">
+          <iframe
+            src="https://map.naver.com/v5/embed/place/13490174?c=14134326.5730343,4516506.0350296,15,0,0,0,dh"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <div class="map-info">
+            <h3>방문 TIP</h3>
+            <ul>
+              <li>주차 2시간 무료 제공</li>
+              <li>지하철 신논현역 4번 출구 도보 3분</li>
+              <li>야간 응급 진료 별도 전화 문의</li>
+            </ul>
+            <a
+              href="https://map.naver.com/v5/search/%ED%91%B8%EB%A5%B4%ED%8E%99%ED%8A%B8%20%ED%8F%AC%EC%9A%B0%EC%A6%88"
+              target="_blank"
+              rel="noopener"
+              class="ghost"
+              >네이버 지도 열기</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div>
+          <h3>Purrfect Paws</h3>
+          <p>서울 강남구 반려로 24 | 02-123-4567</p>
+          <p>평일 09:00 - 22:00 · 주말 24시간 응급실 운영</p>
+        </div>
+        <div class="footer-links">
+          <a href="#top">맨 위로</a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener"
+            >Instagram</a
+          >
+          <a href="https://www.youtube.com" target="_blank" rel="noopener"
+            >YouTube</a
+          >
+        </div>
+        <div class="footer-note">
+          <p>© 2024 Purrfect Paws Animal Hospital. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/js/main.js" type="module"></script>
+  </body>
+</html>
