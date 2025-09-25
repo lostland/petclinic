@@ -7,7 +7,7 @@ const sqlite3 = require('sqlite3').verbose();
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 const DATA_DIR = path.join(__dirname, 'data');
 if (!fs.existsSync(DATA_DIR)) {
@@ -40,6 +40,14 @@ const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'admin';
 const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH || '$2b$10$XwWmpcSjyrFlfy4750lzwOJFOmk2975tsQaBJ/LB3///DpiDjWDjW';
 const SESSION_SECRET = process.env.SESSION_SECRET || 'petclinic-secret';
 const ALLOWED_STATUSES = new Set(['new', 'in_progress', 'completed']);
+
+// Add cache control headers for Replit environment
+app.use((req, res, next) => {
+  res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.set('Pragma', 'no-cache');
+  res.set('Expires', '0');
+  next();
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -187,6 +195,6 @@ app.use((req, res) => {
   res.status(404).json({ message: '요청하신 리소스를 찾을 수 없습니다.' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on http://0.0.0.0:${PORT}`);
 });
