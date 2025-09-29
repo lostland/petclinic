@@ -1,4 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
+import ExperienceSection from './components/ExperienceSection';
+import FloatingCTA from './components/FloatingCTA';
+import Footer from './components/Footer';
+import GallerySection from './components/GallerySection';
+import HeroSection from './components/HeroSection';
+import InquirySection from './components/InquirySection';
+import MapSection from './components/MapSection';
+import ServicesSection from './components/ServicesSection';
 import './styles/app.css';
 
 type HeroSlide =
@@ -69,6 +77,7 @@ function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isFading, setIsFading] = useState(false);
+  const [hasCompletedSlides, setHasCompletedSlides] = useState(false);
 
   useEffect(() => {
     const updateProgress = () => {
@@ -88,12 +97,27 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (hasCompletedSlides) {
+      return undefined;
+    }
+
     let fadeTimer: ReturnType<typeof setTimeout> | undefined;
     const displayTimer = setTimeout(() => {
       setIsFading(true);
       fadeTimer = setTimeout(() => {
-        setActiveSlide((prev) => (prev + 1) % slides.length);
+        let reachedEnd = false;
+        setActiveSlide((prev) => {
+          const nextIndex = prev + 1;
+          if (nextIndex >= slides.length) {
+            reachedEnd = true;
+            return prev;
+          }
+          return nextIndex;
+        });
         setIsFading(false);
+        if (reachedEnd) {
+          setHasCompletedSlides(true);
+        }
       }, FADE_DURATION);
     }, DISPLAY_DURATION);
 
@@ -103,7 +127,7 @@ function App() {
         clearTimeout(fadeTimer);
       }
     };
-  }, [activeSlide, slides.length]);
+  }, [activeSlide, slides.length, hasCompletedSlides]);
 
   const progress = Math.min(Math.max(scrollProgress, 0), 1);
   const heroTranslate = -progress * 28;
@@ -197,6 +221,18 @@ function App() {
           </section>
         </div>
       </div>
+
+      <main className="page-content">
+        <HeroSection />
+        <ServicesSection />
+        <ExperienceSection />
+        <GallerySection />
+        <InquirySection />
+        <MapSection />
+      </main>
+
+      <Footer currentYear={new Date().getFullYear()} />
+      <FloatingCTA />
     </div>
   );
 }
