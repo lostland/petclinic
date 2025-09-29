@@ -31,7 +31,6 @@ type HeroSlide =
     };
 
 const DISPLAY_DURATION = 3200;
-const FADE_DURATION = 800;
 
 function App() {
   const slides = useMemo<HeroSlide[]>(
@@ -76,7 +75,6 @@ function App() {
 
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSlide, setActiveSlide] = useState(0);
-  const [isFading, setIsFading] = useState(false);
   const [hasCompletedSlides, setHasCompletedSlides] = useState(false);
 
   useEffect(() => {
@@ -101,31 +99,23 @@ function App() {
       return undefined;
     }
 
-    let fadeTimer: ReturnType<typeof setTimeout> | undefined;
     const displayTimer = setTimeout(() => {
-      setIsFading(true);
-      fadeTimer = setTimeout(() => {
-        let reachedEnd = false;
-        setActiveSlide((prev) => {
-          const nextIndex = prev + 1;
-          if (nextIndex >= slides.length) {
-            reachedEnd = true;
-            return prev;
-          }
-          return nextIndex;
-        });
-        setIsFading(false);
-        if (reachedEnd) {
-          setHasCompletedSlides(true);
+      let reachedEnd = false;
+      setActiveSlide((prev) => {
+        const nextIndex = prev + 1;
+        if (nextIndex >= slides.length) {
+          reachedEnd = true;
+          return prev;
         }
-      }, FADE_DURATION);
+        return nextIndex;
+      });
+      if (reachedEnd) {
+        setHasCompletedSlides(true);
+      }
     }, DISPLAY_DURATION);
 
     return () => {
       clearTimeout(displayTimer);
-      if (fadeTimer) {
-        clearTimeout(fadeTimer);
-      }
     };
   }, [activeSlide, slides.length, hasCompletedSlides]);
 
@@ -188,11 +178,8 @@ function App() {
     <div className="page-root">
       <div className="scroll-stage">
         <div className="sticky-scenes">
-          <section
-            className={`scene scene-hero ${isFading ? 'is-fading' : 'is-visible'}`}
-            style={{ transform: `translateY(${heroTranslate}vh)` }}
-          >
-            <div className={`hero-content ${isFading ? 'is-fading' : 'is-visible'}`}>{renderSlideContent()}</div>
+          <section className="scene scene-hero" style={{ transform: `translateY(${heroTranslate}vh)` }}>
+            <div className="hero-content">{renderSlideContent()}</div>
           </section>
           <section className="scene scene-info" style={{ transform: `translateY(${infoTranslate}vh)` }}>
             <div className="info-content">

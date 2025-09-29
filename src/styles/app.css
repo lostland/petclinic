@@ -64,17 +64,6 @@
   align-items: center;
   justify-content: center;
   min-height: clamp(360px, 52vh, 560px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.hero-content.is-fading {
-  opacity: 0;
-  transform: translateY(-14px);
-}
-
-.hero-content.is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .hero-slide {
