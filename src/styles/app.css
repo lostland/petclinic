@@ -1,0 +1,13 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    gap: 4rem;
+    padding-bottom: 4rem;
+  }
+}
