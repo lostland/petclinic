@@ -1,10 +1,14 @@
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  background-color: #040916;
-  color: rgba(230, 236, 255, 0.95);
+  background-color: #f4f7ff;
+  color: #1b254b;
+  --color-primary: #65b9b6;
+  --color-dark: #101431;
+  --color-muted: rgba(27, 37, 75, 0.62);
+  --shadow-soft: 0 26px 60px rgba(20, 32, 70, 0.16);
 }
 
 * {
@@ -14,9 +18,9 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: #040916;
-  color: rgba(230, 236, 255, 0.95);
-  overflow-x: hidden;
+  background: #f4f7ff;
+  color: #1b254b;
+  overflow: hidden;
 }
 
 a {
