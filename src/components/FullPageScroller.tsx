@@ -335,8 +335,47 @@ const FullPageScroller = ({ sections }: FullPageScrollerProps) => {
   const progressStyle =
     orientation === 'horizontal' ? ({ ['--fp-progress' as const]: `${progressValue}%` } as CSSProperties) : undefined;
 
+  const backgroundClassNames = useMemo(
+    () =>
+      sections.map((section) => {
+        const className = section.className ?? '';
+        return className
+          .split(/\s+/)
+          .filter((token) => token && token.startsWith('section-bg-'))
+          .join(' ');
+      }),
+    [sections],
+  );
+
   return (
     <div className="fullpage-container" ref={containerRef}>
+      <div className="fp-backgrounds" aria-hidden="true">
+        {sections.map((section, index) => {
+          const isActiveBackground = index === activeIndex;
+          const isPrevBackground = index === prevIndex;
+          const backgroundClassName = [
+            'fp-background-layer',
+            backgroundClassNames[index],
+            isActiveBackground ? 'is-active' : '',
+            isPrevBackground ? 'is-prev' : '',
+            isActiveBackground && isAnimating
+              ? direction === 'down'
+                ? 'entering-down'
+                : 'entering-up'
+              : '',
+            isPrevBackground && isAnimating
+              ? direction === 'down'
+                ? 'leaving-down'
+                : 'leaving-up'
+              : '',
+          ]
+            .filter(Boolean)
+            .join(' ');
+
+          return <div key={`${section.id}-background`} className={backgroundClassName} />;
+        })}
+      </div>
+
       {sections.map((section, index) => {
         const isActive = index === activeIndex;
         const isPrevSection = index === prevIndex;
