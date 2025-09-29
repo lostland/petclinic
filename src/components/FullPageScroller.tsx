@@ -37,6 +37,44 @@ const FullPageScroller = ({ sections }: FullPageScrollerProps) => {
   const totalSections = sections.length;
   const resetDelay = Math.max(ENTER_DURATION, LEAVE_DURATION);
 
+  const updateViewportHeight = useCallback(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
+    const heightValue = `${viewportHeight}px`;
+    document.documentElement.style.setProperty('--fp-vh', heightValue);
+
+    if (containerRef.current) {
+      containerRef.current.style.setProperty('--fp-vh', heightValue);
+    }
+  }, []);
+
+  useEffect(() => {
+    updateViewportHeight();
+
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
+
+    const handleResize = () => {
+      updateViewportHeight();
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+
+    const visualViewport = window.visualViewport;
+    visualViewport?.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+      visualViewport?.removeEventListener('resize', handleResize);
+    };
+  }, [updateViewportHeight]);
+
   useEffect(() => {
     if (totalSections === 0) {
       setActiveIndex(0);
