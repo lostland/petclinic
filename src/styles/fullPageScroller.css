@@ -11,7 +11,7 @@
   display: flex;
   align-items: stretch;
   justify-content: center;
-  padding: clamp(2.4rem, 6vw, 4.6rem) clamp(1.6rem, 5vw, 4rem);
+  padding: clamp(1.8rem, 5vh, 4.2rem) clamp(1.4rem, 5vw, 4rem);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(238, 243, 255, 0.9));
   transform: translateY(120%);
   opacity: 0;
@@ -125,12 +125,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - clamp(4.8rem, 12vw, 7.2rem));
+  min-height: calc(100vh - clamp(4rem, 12vh, 6.4rem));
 }
 
 .fp-section-content {
   width: min(1280px, 100%);
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(1.8rem, 5vh, 3rem);
 }
 
 .fp-progress {
@@ -177,7 +181,7 @@
 
 @media (max-width: 900px) {
   .fp-section {
-    padding: clamp(2rem, 8vw, 3.2rem) clamp(1.2rem, 6vw, 2.4rem);
+    padding: clamp(1.8rem, 7vh, 3.2rem) clamp(1.2rem, 6vw, 2.4rem);
   }
 
   .fp-progress {
@@ -187,11 +191,11 @@
 
 @media (max-width: 640px) {
   .fp-section {
-    padding: clamp(1.5rem, 8vw, 2.4rem);
+    padding: clamp(1.4rem, 7vh, 2.4rem);
   }
 
   .fp-section-inner {
-    min-height: calc(100vh - clamp(3.6rem, 16vw, 5.4rem));
+    min-height: calc(100vh - clamp(3rem, 14vh, 4.8rem));
   }
 
   .fp-progress {
@@ -220,5 +224,31 @@
 
   .fp-progress[data-orientation='horizontal'] .fp-progress-track {
     background: rgba(27, 38, 80, 0.2);
+  }
+}
+
+@media (max-height: 820px) {
+  .fp-section {
+    padding: clamp(1.6rem, 6vh, 2.8rem) clamp(1.2rem, 4vw, 2.4rem);
+  }
+
+  .fp-section-inner {
+    min-height: calc(100vh - clamp(3.2rem, 11vh, 4.8rem));
+  }
+
+  .fp-progress {
+    top: clamp(46%, 50vh, 54%);
+  }
+}
+
+@media (max-height: 700px) {
+  .fp-section-content {
+    gap: clamp(1.2rem, 4vh, 2rem);
+  }
+
+  .fp-progress {
+    top: auto;
+    bottom: clamp(1.8rem, 6vh, 2.4rem);
+    transform: none;
   }
 }
