@@ -42,7 +42,7 @@ const newsItems = [
 
 const GallerySection = () => {
   return (
-    <section className="gallery" id="gallery">
+    <section className="gallery">
       <div className="gallery__hero">
         <div className="gallery__hero-content">
           <p className="section-badge">공간 & 센터 미리보기</p>

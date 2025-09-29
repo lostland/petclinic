@@ -75,7 +75,7 @@ const MapSection = () => {
   }, [isLoaded]);
 
   return (
-    <section className="map" id="map">
+    <section className="map">
       <div className="section-heading">
         <p className="section-badge">찾아오시는 길</p>
         <h2>언제든 부담 없이 방문하세요</h2>

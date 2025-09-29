@@ -48,7 +48,7 @@ const InquirySection = () => {
   };
 
   return (
-    <section className="inquiry" id="inquiry">
+    <section className="inquiry">
       <div className="section-heading">
         <p className="section-badge">디지털 문의 시스템</p>
         <h2>우리 아이에게 꼭 맞는 상담을 예약해보세요</h2>
