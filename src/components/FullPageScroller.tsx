@@ -319,6 +319,7 @@ const FullPageScroller = ({ sections }: FullPageScrollerProps) => {
         return (
           <section
             key={section.id}
+            id={section.id}
             className={sectionClassNames}
             aria-hidden={!isActive}
             aria-label={section.label}

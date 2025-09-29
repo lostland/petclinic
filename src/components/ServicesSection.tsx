@@ -27,7 +27,7 @@ const specialtyList = [
 
 const ServicesSection = () => {
   return (
-    <section className="services" id="services">
+    <section className="services">
       <div className="services__intro">
         <div className="services__copy">
           <p className="section-badge">서울 펫 클리닉 센터 진료 안내</p>

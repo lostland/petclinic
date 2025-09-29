@@ -15,7 +15,7 @@ const floatingVariants = {
 
 const HeroSection = () => {
   return (
-    <header className="hero" id="home">
+    <header className="hero">
       <div className="hero__visual">
         <img
           src="https://24onamc.com/theme/kt001a/img/main_visual01.jpg"

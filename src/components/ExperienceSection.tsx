@@ -22,7 +22,7 @@ const experienceBlocks = [
 
 const ExperienceSection = () => {
   return (
-    <section className="experience" id="experience">
+    <section className="experience">
       <motion.div
         className="experience__feature"
         initial={{ opacity: 0, y: 40 }}
