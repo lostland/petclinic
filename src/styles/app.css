@@ -1,7 +1,7 @@
 .page-root {
   position: relative;
-  height: 100vh;
-  min-height: 100vh;
+  height: var(--fp-vh, 100vh);
+  min-height: var(--fp-vh, 100vh);
   overflow: hidden;
   background:
     radial-gradient(circle at 18% 12%, rgba(95, 135, 255, 0.28), transparent 52%),

@@ -6,15 +6,16 @@
   gap: clamp(2rem, 6vw, 3rem);
   max-width: 1200px;
   margin: 0 auto;
-  padding: clamp(3rem, 8vh, 5.8rem) clamp(1.8rem, 4vw, 2.8rem) clamp(2.6rem, 7vh, 4.8rem);
-  min-height: min(94vh, 880px);
+  padding: clamp(2.6rem, 7vh, 5.2rem) clamp(1.8rem, 4vw, 2.8rem) clamp(2.2rem, 6vh, 4.2rem);
+  min-height: clamp(520px, 78vh, 840px);
+  height: 100%;
 }
 
 .hero__visual {
   position: relative;
   border-radius: 40px;
   overflow: hidden;
-  min-height: clamp(360px, 52vh, 620px);
+  min-height: clamp(320px, 48vh, 600px);
   box-shadow: 0 30px 65px rgba(31, 39, 67, 0.32);
 }
 
@@ -66,7 +67,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: clamp(1.4rem, 4vh, 2rem);
+  gap: clamp(1.3rem, 3.6vh, 1.9rem);
 }
 
 .hero__badge {
@@ -91,7 +92,7 @@
 }
 
 .hero__subtitle {
-  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-size: clamp(0.98rem, 1.5vw, 1.15rem);
   color: var(--color-muted);
   max-width: 520px;
   line-height: 1.8;
@@ -102,7 +103,7 @@
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 0.9rem;
+  gap: 0.8rem;
 }
 
 .hero__features li {
@@ -198,18 +199,18 @@
   .hero {
     grid-template-columns: 1fr;
     align-items: flex-start;
-    padding: clamp(2.4rem, 6vh, 4.2rem) clamp(1.6rem, 4vw, 2.4rem);
-    gap: clamp(1.6rem, 6vh, 2.4rem);
+    padding: clamp(2.2rem, 6vh, 4rem) clamp(1.6rem, 4vw, 2.4rem);
+    gap: clamp(1.5rem, 5vh, 2.4rem);
   }
 
   .hero__visual {
     order: 2;
-    min-height: clamp(280px, 48vh, 420px);
+    min-height: clamp(280px, 46vh, 400px);
   }
 
   .hero__content {
     order: 1;
-    gap: clamp(1.1rem, 3vh, 1.6rem);
+    gap: clamp(1rem, 3vh, 1.6rem);
   }
 
   .hero__pets {
@@ -219,7 +220,8 @@
 
 @media (max-height: 700px) {
   .hero {
-    padding: clamp(2rem, 6vh, 3.6rem) clamp(1.4rem, 4vw, 2rem);
+    padding: clamp(1.8rem, 5.4vh, 3.2rem) clamp(1.4rem, 4vw, 2rem);
+    gap: clamp(1.3rem, 5vh, 2rem);
   }
 
   .hero__title {
@@ -228,6 +230,11 @@
 
   .hero__subtitle {
     font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+    line-height: 1.6;
+  }
+
+  .hero__features {
+    margin-bottom: clamp(1.2rem, 3vh, 1.8rem);
   }
 
   .hero__pets {
@@ -237,11 +244,11 @@
 
 @media (max-width: 640px) {
   .hero {
-    padding: clamp(2.2rem, 7vh, 3.8rem) clamp(1.3rem, 5vw, 1.8rem);
+    padding: clamp(2rem, 7vh, 3.4rem) clamp(1.3rem, 5vw, 1.8rem);
   }
 
   .hero__features {
-    gap: 0.7rem;
+    gap: 0.65rem;
   }
 
   .hero__features li {
@@ -249,10 +256,40 @@
   }
 
   .hero__visual {
-    min-height: clamp(260px, 52vh, 420px);
+    min-height: clamp(240px, 48vh, 380px);
   }
 
   .hero__pets {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-height: 640px) {
+  .hero__badge {
+    display: none;
+  }
+
+  .hero__features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .hero__features li {
+    justify-content: center;
+  }
+}
+
+@media (max-height: 560px) {
+  .hero__features {
+    display: none;
+  }
+
+  .hero__subtitle {
+    font-size: clamp(0.92rem, 1.3vw, 1rem);
+  }
+
+  .hero {
+    padding-top: clamp(1.6rem, 4vh, 2.4rem);
   }
 }
