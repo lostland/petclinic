@@ -1,0 +1,224 @@
+.fullpage-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.fp-section {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: clamp(2.4rem, 6vw, 4.6rem) clamp(1.6rem, 5vw, 4rem);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(238, 243, 255, 0.9));
+  transform: translateY(120%);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+  z-index: 1;
+}
+
+.fp-section.tone-dark {
+  background:
+    radial-gradient(circle at 18% 22%, rgba(32, 45, 96, 0.65), transparent 65%),
+    linear-gradient(180deg, rgba(21, 30, 72, 0.96), rgba(17, 27, 63, 0.92));
+  color: rgba(236, 240, 255, 0.95);
+}
+
+.fp-section.is-active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 6;
+}
+
+.fp-section.is-above {
+  transform: translateY(-130%);
+}
+
+.fp-section.is-below {
+  transform: translateY(120%);
+}
+
+.fp-section.is-prev {
+  z-index: 5;
+}
+
+.fp-section.entering-down,
+.fp-section.entering-up {
+  animation-duration: 0.55s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+
+.fp-section.entering-down {
+  animation-name: fp-enter-down;
+}
+
+.fp-section.entering-up {
+  animation-name: fp-enter-up;
+}
+
+.fp-section.leaving-down,
+.fp-section.leaving-up {
+  animation-duration: 0.92s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.16, 0.8, 0.24, 1);
+}
+
+.fp-section.leaving-down {
+  animation-name: fp-leave-down;
+}
+
+.fp-section.leaving-up {
+  animation-name: fp-leave-up;
+}
+
+@keyframes fp-enter-down {
+  0% {
+    transform: translateY(115%);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fp-leave-down {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-45%);
+    opacity: 0.4;
+  }
+}
+
+@keyframes fp-enter-up {
+  0% {
+    transform: translateY(-115%);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fp-leave-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(45%);
+    opacity: 0.4;
+  }
+}
+
+.fp-section-inner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - clamp(4.8rem, 12vw, 7.2rem));
+}
+
+.fp-section-content {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+}
+
+.fp-progress {
+  position: absolute;
+  top: 50%;
+  right: clamp(1.4rem, 4vw, 3.2rem);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  z-index: 10;
+  pointer-events: none;
+  color: rgba(28, 41, 82, 0.55);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.fp-progress-track {
+  position: relative;
+  width: 2px;
+  height: clamp(160px, 32vh, 240px);
+  border-radius: 999px;
+  background: rgba(27, 38, 80, 0.18);
+  overflow: hidden;
+}
+
+.fp-progress-bar {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: block;
+  background: linear-gradient(180deg, #5f87ff, #76e4ff);
+  transition: height 0.6s cubic-bezier(0.22, 0.75, 0.28, 1);
+}
+
+.fp-progress-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  letter-spacing: 0.22em;
+}
+
+@media (max-width: 900px) {
+  .fp-section {
+    padding: clamp(2rem, 8vw, 3.2rem) clamp(1.2rem, 6vw, 2.4rem);
+  }
+
+  .fp-progress {
+    right: clamp(1rem, 3vw, 2rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .fp-section {
+    padding: clamp(1.5rem, 8vw, 2.4rem);
+  }
+
+  .fp-section-inner {
+    min-height: calc(100vh - clamp(3.6rem, 16vw, 5.4rem));
+  }
+
+  .fp-progress {
+    top: auto;
+    bottom: 2rem;
+    transform: none;
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+
+  .fp-progress-track {
+    width: clamp(90px, 28vw, 140px);
+    height: 3px;
+  }
+
+  .fp-progress-bar {
+    inset: 0 auto 0 0;
+    width: 0;
+    height: 100%;
+    transition: width 0.6s cubic-bezier(0.22, 0.75, 0.28, 1);
+  }
+
+  .fp-progress[data-orientation='horizontal'] .fp-progress-bar {
+    width: var(--fp-progress, 0%);
+  }
+
+  .fp-progress[data-orientation='horizontal'] .fp-progress-track {
+    background: rgba(27, 38, 80, 0.2);
+  }
+}
