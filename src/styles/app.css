@@ -1,13 +1,310 @@
-.app-container {
-  display: flex;
-  flex-direction: column;
-  gap: 6rem;
-  padding-bottom: 6rem;
+.page-root {
+  min-height: 200vh;
+  background: radial-gradient(circle at top left, rgba(94, 136, 255, 0.28), transparent 50%),
+    radial-gradient(circle at bottom right, rgba(255, 90, 118, 0.25), transparent 55%),
+    linear-gradient(120deg, #040b1b 0%, #041729 48%, #071f33 100%);
+  color: rgba(236, 241, 255, 0.92);
+  overflow: hidden;
 }
 
-@media (max-width: 768px) {
-  .app-container {
-    gap: 4rem;
-    padding-bottom: 4rem;
+.scroll-stage {
+  height: 200vh;
+}
+
+.sticky-scenes {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 6vw, 6rem);
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+
+.scene-hero {
+  z-index: 3;
+  background:
+    linear-gradient(140deg, rgba(3, 15, 36, 0.92) 0%, rgba(8, 44, 72, 0.85) 55%, rgba(17, 74, 102, 0.78) 100%),
+    url('https://images.unsplash.com/photo-1555685812-4b74353f1f86?auto=format&fit=crop&w=1800&q=80') center / cover
+      no-repeat;
+}
+
+.scene-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(4, 11, 27, 0.65), rgba(4, 15, 36, 0));
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(360px, 52vh, 560px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.hero-content.is-fading {
+  opacity: 0;
+  transform: translateY(-14px);
+}
+
+.hero-content.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-slide {
+  display: grid;
+  gap: clamp(1rem, 1.8vw, 1.8rem);
+  justify-items: center;
+}
+
+.hero-slide h1,
+.hero-slide h2 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero-slide h1 {
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+}
+
+.hero-slide h2 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+}
+
+.hero-slide p {
+  margin: 0;
+  line-height: 1.6;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  color: rgba(223, 232, 255, 0.84);
+}
+
+.hero-slide-logo {
+  gap: clamp(1.2rem, 2vw, 2rem);
+}
+
+.hero-logo-mark {
+  display: grid;
+  place-items: center;
+  padding: clamp(1.6rem, 2.4vw, 2.8rem);
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(80, 115, 255, 0.38), rgba(111, 207, 255, 0.25));
+  font-size: clamp(1.4rem, 2.2vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #fff;
+  box-shadow: 0 24px 65px rgba(12, 33, 68, 0.42);
+  min-width: clamp(150px, 21vw, 220px);
+}
+
+.hero-logo-mark span {
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 1.4vw, 1.3rem);
+  font-weight: 500;
+  color: rgba(198, 213, 255, 0.85);
+}
+
+.hero-description {
+  max-width: 520px;
+}
+
+.hero-slide-advantages ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.hero-slide-advantages li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  color: rgba(227, 237, 255, 0.9);
+}
+
+.hero-slide-advantages li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6ac8ff, #8fe5ff);
+  box-shadow: 0 0 12px rgba(116, 213, 255, 0.55);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.6rem;
+  border-radius: 999px;
+  background: rgba(120, 180, 255, 0.18);
+  color: rgba(198, 221, 255, 0.9);
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-slide-staff {
+  gap: clamp(1.4rem, 2vw, 2rem);
+}
+
+.hero-staff-list {
+  display: grid;
+  gap: 1rem;
+  width: min(520px, 80vw);
+}
+
+.hero-staff-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.1rem 1.4rem;
+  border-radius: 20px;
+  background: rgba(10, 28, 60, 0.58);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(126, 170, 255, 0.22);
+  text-align: left;
+}
+
+.hero-staff-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.hero-staff-role {
+  color: rgba(205, 219, 255, 0.76);
+  font-size: 0.95rem;
+}
+
+.scene-info {
+  z-index: 4;
+  background:
+    linear-gradient(155deg, rgba(13, 22, 42, 0.92) 0%, rgba(8, 30, 56, 0.88) 45%, rgba(7, 18, 46, 0.9) 100%),
+    url('https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=1800&q=80') center /
+      cover no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(104, 151, 255, 0.08);
+}
+
+.scene-info::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(4, 11, 27, 0.72), rgba(4, 12, 28, 0.2));
+  pointer-events: none;
+}
+
+.info-content {
+  position: relative;
+  z-index: 2;
+  max-width: 840px;
+  text-align: left;
+  display: grid;
+  gap: clamp(1.2rem, 2.5vw, 2.4rem);
+  color: rgba(227, 235, 255, 0.94);
+}
+
+.info-content h2 {
+  margin: 0;
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  font-weight: 700;
+}
+
+.info-content p {
+  margin: 0;
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.7;
+  color: rgba(208, 222, 255, 0.82);
+}
+
+.info-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  background: rgba(125, 199, 255, 0.18);
+  color: rgba(204, 224, 255, 0.9);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+}
+
+.info-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.info-card {
+  padding: 1.4rem 1.6rem;
+  border-radius: 20px;
+  background: rgba(10, 28, 54, 0.7);
+  border: 1px solid rgba(126, 170, 255, 0.2);
+  backdrop-filter: blur(6px);
+  display: grid;
+  gap: 0.6rem;
+}
+
+.info-card h3 {
+  margin: 0;
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+  font-weight: 600;
+  color: rgba(230, 239, 255, 0.94);
+}
+
+.info-card p {
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  color: rgba(200, 215, 245, 0.78);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-content {
+    min-height: clamp(320px, 68vh, 540px);
+  }
+
+  .hero-logo-mark {
+    min-width: 140px;
+    padding: 1.6rem 1.8rem;
+  }
+
+  .hero-staff-list {
+    width: 100%;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scene {
+    padding: clamp(1.8rem, 8vw, 3rem);
   }
 }
