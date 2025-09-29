@@ -302,7 +302,8 @@ const FullPageScroller = ({ sections }: FullPageScrollerProps) => {
       {sections.map((section, index) => {
         const isActive = index === activeIndex;
         const isPrevSection = index === prevIndex;
-        const relativePosition = index < activeIndex ? 'is-above' : 'is-below';
+        const relativePosition =
+          index === activeIndex ? '' : index < activeIndex ? 'is-above' : 'is-below';
 
         const sectionClassNames = [
           'fp-section',
