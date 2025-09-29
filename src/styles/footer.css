@@ -1,0 +1,39 @@
+.footer {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 4rem 2rem 3rem;
+  display: grid;
+  gap: 1.4rem;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__logo {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--color-primary);
+}
+
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.footer__copyright {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1.5rem 2.5rem;
+  }
+}
