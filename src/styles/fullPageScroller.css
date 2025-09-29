@@ -1,5 +1,12 @@
 :root {
   --fp-vh: 100vh;
+  --fp-section-bg-image-1: url('/section-backgrounds/1.jpg');
+  --fp-section-bg-image-2: url('/section-backgrounds/2.jpg');
+  --fp-section-bg-image-3: url('/section-backgrounds/3.jpg');
+  --fp-section-bg-image-4: url('/section-backgrounds/4.jpg');
+  --fp-section-bg-image-5: url('/section-backgrounds/5.jpg');
+  --fp-section-bg-image-6: url('/section-backgrounds/6.jpg');
+  --fp-section-bg-image-7: url('/section-backgrounds/7.jpg');
 }
 
 .fullpage-container {
@@ -17,7 +24,13 @@
   align-items: stretch;
   justify-content: center;
   padding: clamp(1.8rem, 4.8vh, 3.8rem) clamp(1.4rem, 4.4vw, 3.6rem);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(238, 243, 255, 0.9));
+  background: var(
+    --fp-section-background,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(238, 243, 255, 0.9))
+  );
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
   transform: translateY(120%);
   opacity: 0;
   pointer-events: none;
@@ -26,10 +39,49 @@
 }
 
 .fp-section.tone-dark {
-  background:
-    radial-gradient(circle at 18% 22%, rgba(32, 45, 96, 0.65), transparent 65%),
-    linear-gradient(180deg, rgba(21, 30, 72, 0.96), rgba(17, 27, 63, 0.92));
   color: rgba(236, 240, 255, 0.95);
+}
+
+.fp-section.section-bg-1 {
+  --fp-section-background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(101, 185, 182, 0.32)),
+    var(--fp-section-bg-image-1);
+}
+
+.fp-section.section-bg-2 {
+  --fp-section-background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(94, 179, 175, 0.28)),
+    var(--fp-section-bg-image-2);
+}
+
+.fp-section.section-bg-3 {
+  --fp-section-background:
+    linear-gradient(150deg, rgba(18, 30, 72, 0.82), rgba(33, 56, 112, 0.76)),
+    var(--fp-section-bg-image-3);
+}
+
+.fp-section.section-bg-4 {
+  --fp-section-background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.9), rgba(86, 112, 170, 0.3)),
+    var(--fp-section-bg-image-4);
+}
+
+.fp-section.section-bg-5 {
+  --fp-section-background:
+    linear-gradient(165deg, rgba(236, 248, 255, 0.85), rgba(73, 136, 152, 0.35)),
+    var(--fp-section-bg-image-5);
+}
+
+.fp-section.section-bg-6 {
+  --fp-section-background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.88), rgba(79, 93, 140, 0.34)),
+    var(--fp-section-bg-image-6);
+}
+
+.fp-section.section-bg-7 {
+  --fp-section-background:
+    linear-gradient(165deg, rgba(249, 252, 255, 0.9), rgba(101, 185, 182, 0.26)),
+    var(--fp-section-bg-image-7);
 }
 
 .fp-section.is-active {
