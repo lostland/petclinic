@@ -9,8 +9,8 @@ import {
 } from 'react';
 import '../styles/fullPageScroller.css';
 
-const ENTER_DURATION = 550;
-const LEAVE_DURATION = 920;
+const ENTER_DURATION = 450;
+const LEAVE_DURATION = 1100;
 
 export interface FullPageSection {
   id: string;

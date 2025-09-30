@@ -25,11 +25,12 @@
   justify-content: center;
   padding: clamp(1.8rem, 4.8vh, 3.8rem) clamp(1.4rem, 4.4vw, 3.6rem);
   background: transparent;
-  transform: translateY(135%);
+  transform: translateY(120%);
   opacity: 0;
   pointer-events: none;
   will-change: transform, opacity;
   z-index: 1;
+  transition: transform 0.45s cubic-bezier(0.22, 0.82, 0.28, 1), opacity 0.45s cubic-bezier(0.22, 0.82, 0.28, 1);
 }
 
 .fp-backgrounds {
@@ -51,51 +52,38 @@
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
   opacity: 0;
-  --fp-bg-translate: 135%;
-  --fp-bg-scale: 1;
-  transform: translateY(var(--fp-bg-translate)) scale(var(--fp-bg-scale));
+  transform: translateY(120%);
   will-change: transform, opacity;
-  --fp-bg-opacity-duration: 0.45s;
-  --fp-bg-transform-duration: 0.45s;
-  transition:
-    opacity var(--fp-bg-opacity-duration) cubic-bezier(0.22, 0.82, 0.28, 1),
-    transform var(--fp-bg-transform-duration) cubic-bezier(0.22, 0.82, 0.28, 1);
+  transition: transform 0.45s cubic-bezier(0.22, 0.82, 0.28, 1), opacity 0.45s cubic-bezier(0.22, 0.82, 0.28, 1);
 }
 
 .fp-background-layer.is-active {
   opacity: 1;
-  --fp-bg-translate: 0%;
-  --fp-bg-scale: 1;
+  transform: translateY(0);
   z-index: 2;
 }
 
 .fp-background-layer.is-prev {
-  --fp-bg-opacity-duration: 1.1s;
-  --fp-bg-transform-duration: 1.1s;
-  --fp-bg-scale: 1;
   z-index: 1;
-  transition:
-    opacity var(--fp-bg-opacity-duration) cubic-bezier(0.14, 0.76, 0.22, 1),
-    transform var(--fp-bg-transform-duration) cubic-bezier(0.14, 0.76, 0.22, 1);
+  transition: transform 1.1s cubic-bezier(0.14, 0.76, 0.22, 1), opacity 1.1s cubic-bezier(0.14, 0.76, 0.22, 1);
 }
 
 .fp-background-layer.is-above {
-  --fp-bg-translate: -135%;
+  transform: translateY(-120%);
 }
 
 .fp-background-layer.is-below {
-  --fp-bg-translate: 135%;
+  transform: translateY(120%);
 }
 
-.fp-background-layer.entering-down,
-.fp-background-layer.entering-up {
-  --fp-bg-transform-duration: 0.45s;
+.fp-background-layer.is-prev.leaving-down {
+  transform: translateY(-60%);
+  opacity: 0;
 }
 
-.fp-background-layer.leaving-down,
-.fp-background-layer.leaving-up {
-  --fp-bg-transform-duration: 1.1s;
-  --fp-bg-opacity-duration: 1.1s;
+.fp-background-layer.is-prev.leaving-up {
+  transform: translateY(60%);
+  opacity: 0;
 }
 
 .fp-section.tone-dark {
@@ -159,90 +147,28 @@
 }
 
 .fp-section.is-above {
-  transform: translateY(-135%);
+  transform: translateY(-120%);
 }
 
 .fp-section.is-below {
-  transform: translateY(135%);
+  transform: translateY(120%);
 }
 
 .fp-section.is-prev {
   z-index: 5;
+  transition: transform 1.1s cubic-bezier(0.14, 0.76, 0.22, 1), opacity 1.1s cubic-bezier(0.14, 0.76, 0.22, 1);
 }
 
-.fp-section.entering-down,
-.fp-section.entering-up {
-  animation-duration: 0.45s;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.22, 0.82, 0.28, 1);
+.fp-section.is-prev.leaving-down {
+  transform: translateY(-60%);
+  opacity: 0;
 }
 
-.fp-section.entering-down {
-  animation-name: fp-enter-down;
+.fp-section.is-prev.leaving-up {
+  transform: translateY(60%);
+  opacity: 0;
 }
 
-.fp-section.entering-up {
-  animation-name: fp-enter-up;
-}
-
-.fp-section.leaving-down,
-.fp-section.leaving-up {
-  animation-duration: 1.1s;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.14, 0.76, 0.22, 1);
-}
-
-.fp-section.leaving-down {
-  animation-name: fp-leave-down;
-}
-
-.fp-section.leaving-up {
-  animation-name: fp-leave-up;
-}
-
-@keyframes fp-enter-down {
-  0% {
-    transform: translateY(115%);
-    opacity: 0.3;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fp-leave-down {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-135%);
-    opacity: 0;
-  }
-}
-
-@keyframes fp-enter-up {
-  0% {
-    transform: translateY(-115%);
-    opacity: 0.3;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fp-leave-up {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(135%);
-    opacity: 0;
-  }
-}
 
 .fp-section-inner {
   flex: 1;
