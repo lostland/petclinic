@@ -375,7 +375,7 @@ const FullPageScroller = ({ sections }: FullPageScrollerProps) => {
             .filter(Boolean)
             .join(' ');
 
-          const backgroundBaseLayer = index + 1;
+          const backgroundBaseLayer = totalSections - index;
           const backgroundHighlightOffset = totalSections + 1;
           let backgroundZIndex = backgroundBaseLayer;
 
@@ -417,7 +417,7 @@ const FullPageScroller = ({ sections }: FullPageScrollerProps) => {
           .join(' ');
 
         const sectionBaseOffset = totalSections * 10;
-        const sectionBaseLayer = sectionBaseOffset + index + 1;
+        const sectionBaseLayer = sectionBaseOffset + (totalSections - index);
         const sectionHighlightOffset = totalSections + 1;
         let sectionZIndex = sectionBaseLayer;
 
