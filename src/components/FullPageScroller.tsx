@@ -375,7 +375,26 @@ const FullPageScroller = ({ sections }: FullPageScrollerProps) => {
             .filter(Boolean)
             .join(' ');
 
-          return <div key={`${section.id}-background`} className={backgroundClassName} />;
+          const backgroundBaseLayer = index + 1;
+          const backgroundHighlightOffset = totalSections + 1;
+          let backgroundZIndex = backgroundBaseLayer;
+
+          if (isPrevBackground) {
+            backgroundZIndex += backgroundHighlightOffset;
+          }
+          if (isActiveBackground) {
+            backgroundZIndex += backgroundHighlightOffset + totalSections;
+          }
+
+          const backgroundStyle: CSSProperties = { zIndex: backgroundZIndex };
+
+          return (
+            <div
+              key={`${section.id}-background`}
+              className={backgroundClassName}
+              style={backgroundStyle}
+            />
+          );
         })}
       </div>
 
@@ -397,6 +416,20 @@ const FullPageScroller = ({ sections }: FullPageScrollerProps) => {
           .filter(Boolean)
           .join(' ');
 
+        const sectionBaseOffset = totalSections * 10;
+        const sectionBaseLayer = sectionBaseOffset + index + 1;
+        const sectionHighlightOffset = totalSections + 1;
+        let sectionZIndex = sectionBaseLayer;
+
+        if (isPrevSection) {
+          sectionZIndex += sectionHighlightOffset;
+        }
+        if (isActive) {
+          sectionZIndex += sectionHighlightOffset + totalSections;
+        }
+
+        const sectionStyle: CSSProperties = { zIndex: sectionZIndex };
+
         return (
           <section
             key={section.id}
@@ -405,6 +438,7 @@ const FullPageScroller = ({ sections }: FullPageScrollerProps) => {
             aria-hidden={!isActive}
             aria-label={section.label}
             data-section-id={section.id}
+            style={sectionStyle}
           >
             <div className="fp-section-inner">
               <div className="fp-section-content">{section.content}</div>
