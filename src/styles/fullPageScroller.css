@@ -1,5 +1,13 @@
 :root {
   --fp-vh: 100vh;
+  
+  --fp-enter-distance: 120%;
+  --fp-leave-distance: 60%;
+  --fp-enter-duration: 0.45s;
+  --fp-leave-duration: 1.1s;
+  --fp-enter-easing: cubic-bezier(0.22, 0.82, 0.28, 1);
+  --fp-leave-easing: cubic-bezier(0.14, 0.76, 0.22, 1);
+  
   --fp-section-bg-image-1: url('/section-backgrounds/1.jpg');
   --fp-section-bg-image-2: url('/section-backgrounds/2.jpg');
   --fp-section-bg-image-3: url('/section-backgrounds/3.jpg');
@@ -25,12 +33,12 @@
   justify-content: center;
   padding: clamp(1.8rem, 4.8vh, 3.8rem) clamp(1.4rem, 4.4vw, 3.6rem);
   background: transparent;
-  transform: translateY(120%);
+  transform: translateY(var(--fp-enter-distance));
   opacity: 0;
   pointer-events: none;
   will-change: transform, opacity;
   z-index: 1;
-  transition: transform 0.45s cubic-bezier(0.22, 0.82, 0.28, 1), opacity 0.45s cubic-bezier(0.22, 0.82, 0.28, 1);
+  transition: transform var(--fp-enter-duration) var(--fp-enter-easing), opacity var(--fp-enter-duration) var(--fp-enter-easing);
 }
 
 .fp-backgrounds {
@@ -52,37 +60,37 @@
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
   opacity: 0;
-  transform: translateY(120%);
+  transform: translateY(var(--fp-enter-distance));
   will-change: transform, opacity;
-  transition: transform 0.45s cubic-bezier(0.22, 0.82, 0.28, 1), opacity 0.45s cubic-bezier(0.22, 0.82, 0.28, 1);
+  transition: transform var(--fp-enter-duration) var(--fp-enter-easing), opacity var(--fp-enter-duration) var(--fp-enter-easing);
 }
 
 .fp-background-layer.is-active {
   opacity: 1;
   transform: translateY(0);
-  z-index: 2;
+  z-index: 100;
 }
 
 .fp-background-layer.is-prev {
-  z-index: 1;
-  transition: transform 1.1s cubic-bezier(0.14, 0.76, 0.22, 1), opacity 1.1s cubic-bezier(0.14, 0.76, 0.22, 1);
+  z-index: 50;
+  transition: transform var(--fp-leave-duration) var(--fp-leave-easing), opacity var(--fp-leave-duration) var(--fp-leave-easing);
 }
 
 .fp-background-layer.is-above {
-  transform: translateY(-120%);
+  transform: translateY(calc(-1 * var(--fp-enter-distance)));
 }
 
 .fp-background-layer.is-below {
-  transform: translateY(120%);
+  transform: translateY(var(--fp-enter-distance));
 }
 
 .fp-background-layer.is-prev.leaving-down {
-  transform: translateY(-60%);
+  transform: translateY(calc(-1 * var(--fp-leave-distance)));
   opacity: 0;
 }
 
 .fp-background-layer.is-prev.leaving-up {
-  transform: translateY(60%);
+  transform: translateY(var(--fp-leave-distance));
   opacity: 0;
 }
 
@@ -147,25 +155,25 @@
 }
 
 .fp-section.is-above {
-  transform: translateY(-120%);
+  transform: translateY(calc(-1 * var(--fp-enter-distance)));
 }
 
 .fp-section.is-below {
-  transform: translateY(120%);
+  transform: translateY(var(--fp-enter-distance));
 }
 
 .fp-section.is-prev {
   z-index: 5;
-  transition: transform 1.1s cubic-bezier(0.14, 0.76, 0.22, 1), opacity 1.1s cubic-bezier(0.14, 0.76, 0.22, 1);
+  transition: transform var(--fp-leave-duration) var(--fp-leave-easing), opacity var(--fp-leave-duration) var(--fp-leave-easing);
 }
 
 .fp-section.is-prev.leaving-down {
-  transform: translateY(-60%);
+  transform: translateY(calc(-1 * var(--fp-leave-distance)));
   opacity: 0;
 }
 
 .fp-section.is-prev.leaving-up {
-  transform: translateY(60%);
+  transform: translateY(var(--fp-leave-distance));
   opacity: 0;
 }
 

@@ -9,8 +9,6 @@ import {
 } from 'react';
 import '../styles/fullPageScroller.css';
 
-const ENTER_DURATION = 450;
-const LEAVE_DURATION = 1100;
 
 export interface FullPageSection {
   id: string;
@@ -35,7 +33,6 @@ const FullPageScroller = ({ sections }: FullPageScrollerProps) => {
   );
 
   const totalSections = sections.length;
-  const resetDelay = Math.max(ENTER_DURATION, LEAVE_DURATION);
 
   const updateViewportHeight = useCallback(() => {
     if (typeof window === 'undefined') {
@@ -146,15 +143,25 @@ const FullPageScroller = ({ sections }: FullPageScrollerProps) => {
       return undefined;
     }
 
-    const timeout = window.setTimeout(() => {
-      setIsAnimating(false);
-      setPrevIndex(null);
-    }, resetDelay);
+    const element = containerRef.current;
+    if (!element) {
+      return undefined;
+    }
+
+    const handleTransitionEnd = (event: TransitionEvent) => {
+      const prevSection = element.querySelector('.fp-section.is-prev');
+      if (event.target === prevSection && event.propertyName === 'transform') {
+        setIsAnimating(false);
+        setPrevIndex(null);
+      }
+    };
+
+    element.addEventListener('transitionend', handleTransitionEnd);
 
     return () => {
-      window.clearTimeout(timeout);
+      element.removeEventListener('transitionend', handleTransitionEnd);
     };
-  }, [isAnimating, resetDelay]);
+  }, [isAnimating]);
 
   useEffect(() => {
     const query = window.matchMedia('(max-width: 640px)');
@@ -375,24 +382,10 @@ const FullPageScroller = ({ sections }: FullPageScrollerProps) => {
             .filter(Boolean)
             .join(' ');
 
-          const backgroundBaseLayer = index + 1;
-          const backgroundHighlightOffset = totalSections + 1;
-          let backgroundZIndex = backgroundBaseLayer;
-
-          if (isPrevBackground) {
-            backgroundZIndex += backgroundHighlightOffset;
-          }
-          if (isActiveBackground) {
-            backgroundZIndex += backgroundHighlightOffset + totalSections;
-          }
-
-          const backgroundStyle: CSSProperties = { zIndex: backgroundZIndex };
-
           return (
             <div
               key={`${section.id}-background`}
               className={backgroundClassName}
-              style={backgroundStyle}
             />
           );
         })}
@@ -416,20 +409,6 @@ const FullPageScroller = ({ sections }: FullPageScrollerProps) => {
           .filter(Boolean)
           .join(' ');
 
-        const sectionBaseOffset = totalSections * 10;
-        const sectionBaseLayer = sectionBaseOffset + index + 1;
-        const sectionHighlightOffset = totalSections + 1;
-        let sectionZIndex = sectionBaseLayer;
-
-        if (isPrevSection) {
-          sectionZIndex += sectionHighlightOffset;
-        }
-        if (isActive) {
-          sectionZIndex += sectionHighlightOffset + totalSections;
-        }
-
-        const sectionStyle: CSSProperties = { zIndex: sectionZIndex };
-
         return (
           <section
             key={section.id}
@@ -438,7 +417,6 @@ const FullPageScroller = ({ sections }: FullPageScrollerProps) => {
             aria-hidden={!isActive}
             aria-label={section.label}
             data-section-id={section.id}
-            style={sectionStyle}
           >
             <div className="fp-section-inner">
               <div className="fp-section-content">{section.content}</div>
