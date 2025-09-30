@@ -353,9 +353,12 @@ const FullPageScroller = ({ sections }: FullPageScrollerProps) => {
         {sections.map((section, index) => {
           const isActiveBackground = index === activeIndex;
           const isPrevBackground = index === prevIndex;
+          const relativeBackgroundPosition =
+            index === activeIndex ? '' : index < activeIndex ? 'is-above' : 'is-below';
           const backgroundClassName = [
             'fp-background-layer',
             backgroundClassNames[index],
+            relativeBackgroundPosition,
             isActiveBackground ? 'is-active' : '',
             isPrevBackground ? 'is-prev' : '',
             isActiveBackground && isAnimating

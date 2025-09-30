@@ -51,7 +51,10 @@
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
   opacity: 0;
-  transform: scale(1.045);
+  --fp-bg-translate: 120%;
+  --fp-bg-scale: 1.045;
+  transform: translateY(var(--fp-bg-translate)) scale(var(--fp-bg-scale));
+  will-change: transform, opacity;
   --fp-bg-opacity-duration: 0.55s;
   --fp-bg-transform-duration: 1.2s;
   transition:
@@ -61,14 +64,23 @@
 
 .fp-background-layer.is-active {
   opacity: 1;
-  transform: scale(1);
+  --fp-bg-translate: 0%;
+  --fp-bg-scale: 1;
   z-index: 2;
 }
 
 .fp-background-layer.is-prev {
   --fp-bg-opacity-duration: 0.92s;
-  transform: scale(1.02);
+  --fp-bg-scale: 1.02;
   z-index: 1;
+}
+
+.fp-background-layer.is-above {
+  --fp-bg-translate: -130%;
+}
+
+.fp-background-layer.is-below {
+  --fp-bg-translate: 120%;
 }
 
 .fp-background-layer.entering-down,
