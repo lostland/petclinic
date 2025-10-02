@@ -14,7 +14,8 @@
   border-radius: 36px;
   overflow: hidden;
   min-height: clamp(280px, 44vh, 360px);
-  background: url('https://24onamc.com/theme/kt001a/img/sur1.jpg') center/cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=80')
+    center/cover no-repeat;
   box-shadow: 0 32px 70px rgba(31, 39, 67, 0.28);
 }
 

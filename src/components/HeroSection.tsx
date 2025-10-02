@@ -1,127 +1,144 @@
 import { motion } from 'framer-motion';
 import '../styles/hero.css';
 
-const floatingVariants = {
-  initial: { y: 0 },
-  animate: {
-    y: [0, -18, 0],
-    transition: {
-      duration: 5,
-      repeat: Infinity,
-      ease: 'easeInOut'
-    }
-  }
-};
+const heroHighlights = [
+  {
+    title: '24시간 전담 진료',
+    description: '응급, 입원, 야간 협진까지 한 번에 이어지는 원스톱 케어',
+  },
+  {
+    title: '첨단 영상 · 수술 시스템',
+    description: '128ch CT와 무균 수술실, 회복실을 연결한 토탈 진료 인프라',
+  },
+  {
+    title: '라이프스타일 컨시어지',
+    description: '젊은 보호자를 위한 프라이빗 상담존과 감성 라운지 운영',
+  },
+];
+
+const heroFacts = [
+  { label: '진료시간', value: '연중무휴 24h' },
+  { label: '상담 채널', value: '전화 · 카카오톡 · 온라인' },
+  { label: '위치', value: '역삼역 3번 출구 도보 3분' },
+];
 
 const HeroSection = () => {
   return (
     <header className="hero">
-      <div className="hero__visual">
+      <div className="hero__background" aria-hidden>
         <img
-          src="https://24onamc.com/theme/kt001a/img/main_visual01.jpg"
-          alt="따뜻하게 안아주는 수의사와 강아지"
-          className="hero__image"
+          src="https://images.unsplash.com/photo-1558944351-c3a08818bd0c?auto=format&fit=crop&w=1600&q=80"
+          alt="감각적인 동물병원 내부"
           loading="lazy"
         />
-        <div className="hero__overlay" />
-        <motion.div
-          className="hero__floating hero__floating--left"
-          variants={floatingVariants}
-          initial="initial"
-          animate="animate"
-        >
-          <span>24시간 케어</span>
-          <strong>응급 · 입원 시스템</strong>
-        </motion.div>
-        <motion.div
-          className="hero__floating hero__floating--right"
-          variants={floatingVariants}
-          initial="initial"
-          animate="animate"
-        >
-          <span>첨단 영상진단</span>
-          <strong>CT · X-ray · 초음파</strong>
-        </motion.div>
+        <div className="hero__background-overlay" />
       </div>
-      <div className="hero__content">
-        <motion.p
+
+      <div className="hero__inner">
+        <motion.span
           className="hero__badge"
-          initial={{ opacity: 0, y: -16 }}
+          initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
         >
-          서울 펫 클리닉 센터
-        </motion.p>
+          24ON AMC 협력 프리미엄 센터
+        </motion.span>
+
+        <motion.div
+          className="hero__logo"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <svg viewBox="0 0 64 64" role="img" aria-label="서울 펫 클리닉 로고">
+            <circle cx="32" cy="32" r="30" fill="url(#heroLogoGradient)" />
+            <path
+              d="M32 18c-4.3 0-7.8 3.5-7.8 7.8 0 1.5.4 3 1.2 4.2l6.6 10.5 6.6-10.5c.8-1.2 1.2-2.7 1.2-4.2 0-4.3-3.5-7.8-7.8-7.8zm0 11.4a3.6 3.6 0 1 1 0-7.2 3.6 3.6 0 0 1 0 7.2z"
+              fill="#fff"
+            />
+            <path
+              d="M22.2 35.4c-4.1 0-7.4 3.3-7.4 7.4S18.1 50.2 22.2 50.2c2.4 0 4.5-1.1 5.9-2.8l3.9-5.6-3.9-6c-1.3-2-3.5-3.2-5.9-3.2zM41.8 35.4c-2.4 0-4.6 1.2-5.9 3.2l-3.9 6 3.9 5.6c1.4 1.8 3.5 2.8 5.9 2.8 4.1 0 7.4-3.3 7.4-7.4s-3.3-7.4-7.4-7.4z"
+              fill="#fff"
+              opacity="0.88"
+            />
+            <defs>
+              <linearGradient id="heroLogoGradient" x1="12" y1="12" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#65b9b6" />
+                <stop offset="100%" stopColor="#4f5d8c" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </motion.div>
+
         <motion.h1
           className="hero__title"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
         >
-          젊은 보호자를 위한<br />
-          프리미엄 24시 동물병원
+          서울 펫 클리닉 센터
         </motion.h1>
+
         <motion.p
           className="hero__subtitle"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          반려가족의 하루에 스며드는 감각적인 공간, 첨단 장비와 숙련된 의료진의 팀 케어로 안심을 전합니다.
-        </motion.p>
-        <motion.ul
-          className="hero__features"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
         >
-          <li>여의도 · 강남권 10분 내 접근</li>
-          <li>여성 보호자 전용 상담 라운지</li>
-          <li>24on AMC 협력 의료 네트워크</li>
+          프리미엄 24시 동물병원
+        </motion.p>
+
+        <motion.p
+          className="hero__description"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.25 }}
+        >
+          반려가족의 하루에 자연스럽게 스며드는 진료 경험을 디자인했습니다. 감각적인 공간, 첨단 장비,
+          숙련된 의료진이 팀을 이뤄 언제 방문하셔도 동일한 퀄리티의 케어를 제공합니다.
+        </motion.p>
+
+        <motion.ul
+          className="hero__highlights"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35 }}
+        >
+          {heroHighlights.map((highlight) => (
+            <li key={highlight.title}>
+              <h3>{highlight.title}</h3>
+              <p>{highlight.description}</p>
+            </li>
+          ))}
         </motion.ul>
-        <div className="hero__actions">
-          <motion.a
-            href="#inquiry"
-            className="hero__cta"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            맞춤 상담 예약하기
-          </motion.a>
-          <motion.a
-            href="#map"
-            className="hero__cta hero__cta--ghost"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            오시는 길 보기
-          </motion.a>
-        </div>
+
         <motion.div
-          className="hero__pets"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          className="hero__actions"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
         >
-          <img
-            src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=80"
-            alt="웃는 강아지"
-            className="hero__pet"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?auto=format&fit=crop&w=900&q=80"
-            alt="포근한 고양이"
-            className="hero__pet"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80"
-            alt="함께 있는 강아지와 고양이"
-            className="hero__pet"
-            loading="lazy"
-          />
+          <a href="#inquiry" className="hero__cta">
+            상담 예약하기
+          </a>
+          <a href="#services" className="hero__cta hero__cta--ghost">
+            센터 프로그램 보기
+          </a>
         </motion.div>
+
+        <motion.dl
+          className="hero__facts"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.45 }}
+        >
+          {heroFacts.map((fact) => (
+            <div key={fact.label} className="hero__fact">
+              <dt>{fact.label}</dt>
+              <dd>{fact.value}</dd>
+            </div>
+          ))}
+        </motion.dl>
       </div>
     </header>
   );

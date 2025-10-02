@@ -3,40 +3,37 @@ import '../styles/gallery.css';
 
 const gallerySlides = [
   {
-    title: '서울 펫 클리닉 센터 투어',
-    description: '감각적인 인테리어와 감성 조명이 어우러진 공간, 프라이빗 라운지를 미리 만나보세요.',
-    image: 'https://24onamc.com/theme/kt001a/img/main_visual02.jpg'
+    title: '로비 & 웰컴 라운지',
+    description: '자연광이 들어오는 로비에서 반려동물과 보호자를 가장 먼저 따뜻하게 맞이합니다.',
+    image: 'https://images.unsplash.com/photo-1610276198568-eb6d0ff53d79?auto=format&fit=crop&w=1200&q=80'
   },
   {
-    title: '스페셜티 수술센터',
-    description: '무균 수술실과 회복실, 집중케어실까지 한 공간에 구성해 안전한 수술 환경을 제공합니다.',
-    image: 'https://24onamc.com/theme/kt001a/img/sur3.jpg'
+    title: '수술 준비 구역',
+    description: '무균 환경으로 설계된 준비실에서 수술 전 체크리스트를 꼼꼼하게 점검합니다.',
+    image: 'https://images.unsplash.com/photo-1576765607924-3ddca5f90ca5?auto=format&fit=crop&w=1200&q=80'
   },
   {
-    title: '힐링 펫 라운지',
-    description: '여성 보호자를 위한 프라이빗 상담존과 향기로운 티 바, 포토 스팟을 준비했습니다.',
-    image: 'https://24onamc.com/theme/kt001a/img/about4.jpg'
+    title: '보호자 케어 라운지',
+    description: '프라이빗 좌석과 향기로운 티 서비스로 케어 중에도 편안한 휴식을 드립니다.',
+    image: 'https://images.unsplash.com/photo-1616628182501-d48e0d3f0c8d?auto=format&fit=crop&w=1200&q=80'
   }
 ];
 
 const newsItems = [
   {
-    title: '[희망이의 치료 여정 2] 불길 속에서 살아난 희망',
-    date: '2025.04.23',
-    image:
-      'https://24onamc.com/data/editor/2504/thumb-f0e895a2f7e9c6967f77b3bb6fae40c5_1745369212_3398_600x.jpg'
+    title: '야간 응급 전담팀 신설 안내',
+    date: '2025.04.27',
+    image: 'https://images.unsplash.com/photo-1550831107-1553da8c8464?auto=format&fit=crop&w=800&q=80'
   },
   {
-    title: '[희망이의 치료 여정 1] 산불 현장에서 구조된 작은 생명',
-    date: '2025.04.16',
-    image:
-      'https://24onamc.com/data/editor/2504/thumb-87f2172353105c219a1d2b77a1c69f27_1744766597_1599_600x.jpg'
+    title: '보호자 케어 라운지 리뉴얼 오픈',
+    date: '2025.04.12',
+    image: 'https://images.unsplash.com/photo-1526403226667-4aa07b0604ef?auto=format&fit=crop&w=800&q=80'
   },
   {
-    title: '첨단 영상진단센터 CT 장비 업그레이드 안내',
-    date: '2025.03.28',
-    image:
-      'https://24onamc.com/data/editor/2503/thumb-521bcfddcd7f1a71296eb4c11b0e1b7e_1743279352_9973_600x.jpg'
+    title: '심장 재활 프로그램 런칭',
+    date: '2025.03.30',
+    image: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
@@ -45,11 +42,11 @@ const GallerySection = () => {
     <section className="gallery">
       <div className="gallery__hero">
         <div className="gallery__hero-content">
-          <p className="section-badge">공간 & 센터 미리보기</p>
-          <h2>서울 펫 클리닉 센터의 특별한 하루</h2>
+          <p className="section-badge">센터 공간 스케치</p>
+          <h2>감각적인 휴식과 진료가 공존하는 무드</h2>
           <p>
-            24on AMC의 감각적인 공간 구성과 전문 진료 동선을 그대로 담았습니다. 젊은 보호자들이 선호하는
-            파스텔 무드, 라탄 포인트, 감성 조명이 어우러져 힐링되는 시간을 선사합니다.
+            반려동물과 보호자가 모두 편안함을 느끼도록 동선을 정리하고, 공간마다 다른 감성을 담았습니다.
+            머무는 동안 자연스럽게 긴장이 풀리는 서울 펫 클리닉 센터의 하루를 살펴보세요.
           </p>
         </div>
         <div className="gallery__slider">
@@ -74,8 +71,8 @@ const GallerySection = () => {
 
       <div className="gallery__news">
         <div className="gallery__news-header">
-          <h3>서울 펫 클리닉 소식</h3>
-          <span>실시간으로 업데이트되는 치료 이야기</span>
+          <h3>센터 뉴스</h3>
+          <span>서울 펫 클리닉 센터의 최신 소식을 만나보세요</span>
         </div>
         <div className="gallery__news-list">
           {newsItems.map((item, index) => (
@@ -91,7 +88,7 @@ const GallerySection = () => {
               <div className="gallery__news-content">
                 <span className="gallery__news-date">{item.date}</span>
                 <h4>{item.title}</h4>
-                <p>서울 펫 클리닉 센터에서 진행 중인 특별한 치료 사례와 감동적인 이야기들을 만나보세요.</p>
+                <p>보호자님께 도움이 될 만한 진료 소식과 센터 업데이트를 정기적으로 전해드립니다.</p>
               </div>
             </motion.article>
           ))}

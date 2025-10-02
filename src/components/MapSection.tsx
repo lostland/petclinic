@@ -61,7 +61,7 @@ const MapSection = () => {
       <div class="map-info">
         <h3>서울 펫 클리닉 센터</h3>
         <p>서울특별시 강남구 테헤란로 123</p>
-        <p class="map-info__highlight">영업시간 10:00 - 21:00 (연중무휴)</p>
+        <p class="map-info__highlight">연중무휴 24시간 진료</p>
       </div>
     `;
 
@@ -77,10 +77,11 @@ const MapSection = () => {
   return (
     <section className="map">
       <div className="section-heading">
-        <p className="section-badge">찾아오시는 길</p>
-        <h2>언제든 부담 없이 방문하세요</h2>
+        <p className="section-badge">방문 안내</p>
+        <h2>역삼역에서 가장 가까운 24시 동물병원</h2>
         <p className="section-description">
-          2호선 역삼역 3번 출구 도보 3분. 주차 발렛과 반려동물 픽업 서비스도 준비되어 있어요.
+          2호선 역삼역 3번 출구에서 도보 3분. 지하 주차장 발렛과 반려동물 픽업 서비스를 통해 이동 부담을
+          줄였습니다.
         </p>
       </div>
       <motion.div
@@ -96,11 +97,11 @@ const MapSection = () => {
           <p>서울특별시 강남구 테헤란로 123, 2층</p>
           <ul>
             <li>지하철 2호선 역삼역 3번 출구 도보 3분</li>
-            <li>카페 같은 무드의 라운지와 포토존</li>
-            <li>야간 응급 협력 네트워크 운영</li>
+            <li>지하 주차장 발렛 & 보호자 픽업 서비스</li>
+            <li>야간 응급 전담팀 · 24ON 협력 네트워크</li>
           </ul>
           <a className="map__link" href="tel:0277771234">
-            지금 바로 전화하기 02-7777-1234
+            상담 및 예약 02-7777-1234
           </a>
         </div>
       </motion.div>
