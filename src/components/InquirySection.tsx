@@ -35,12 +35,12 @@ const InquirySection = () => {
       });
 
       if (!response.ok) {
-        throw new Error('문의 접수에 실패했어요. 다시 시도해주세요.');
+        throw new Error('문의 접수에 실패했어요. 잠시 후 다시 시도해주세요.');
       }
 
       setValues(initialValues);
       setStatus('success');
-      setFeedback('문의가 접수되었어요! 24시간 이내에 이메일로 연락드릴게요.');
+      setFeedback('문의가 정상적으로 접수되었어요! 24시간 이내에 이메일로 안내드릴게요.');
     } catch (error) {
       setStatus('error');
       setFeedback((error as Error).message);
@@ -50,10 +50,10 @@ const InquirySection = () => {
   return (
     <section className="inquiry">
       <div className="section-heading">
-        <p className="section-badge">디지털 문의 시스템</p>
-        <h2>우리 아이에게 꼭 맞는 상담을 예약해보세요</h2>
+        <p className="section-badge">Smart Inquiry</p>
+        <h2>3분이면 끝나는 스마트 상담 신청</h2>
         <p className="section-description">
-          문의를 남겨주시면 담당 케어 매니저가 라이프스타일에 맞춘 진료 플랜을 제안드립니다.
+          기본 정보를 남겨주시면 케어 매니저가 반려동물의 컨디션과 일정에 맞춘 맞춤 플랜을 제안드려요.
         </p>
       </div>
       <motion.form
@@ -70,7 +70,7 @@ const InquirySection = () => {
             id="name"
             name="name"
             type="text"
-            placeholder="이름을 입력해주세요"
+            placeholder="보호자 성함을 입력해주세요"
             value={values.name}
             onChange={(event) => setValues({ ...values, name: event.target.value })}
             required
@@ -82,7 +82,7 @@ const InquirySection = () => {
             id="email"
             name="email"
             type="email"
-            placeholder="example@email.com"
+            placeholder="연락 가능한 이메일을 입력해주세요"
             value={values.email}
             onChange={(event) => setValues({ ...values, email: event.target.value })}
             required
@@ -110,7 +110,7 @@ const InquirySection = () => {
           <textarea
             id="message"
             name="message"
-            placeholder="반려동물의 컨디션이나 상담을 원하는 내용을 자유롭게 적어주세요"
+            placeholder="반려동물의 컨디션과 상담을 원하는 내용을 자유롭게 적어주세요"
             rows={5}
             value={values.message}
             onChange={(event) => setValues({ ...values, message: event.target.value })}
@@ -124,7 +124,7 @@ const InquirySection = () => {
           whileTap={{ scale: 0.97 }}
           disabled={status === 'loading'}
         >
-          {status === 'loading' ? '전송 중...' : '문의 남기기'}
+          {status === 'loading' ? '전송 중...' : '문의 보내기'}
         </motion.button>
         {status !== 'idle' && (
           <p className={`inquiry__feedback inquiry__feedback--${status}`}>
